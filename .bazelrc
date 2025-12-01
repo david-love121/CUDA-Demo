@@ -1,0 +1,6 @@
+# Use GCC for compilation (Host backend for NVCC)
+build --action_env=CC=gcc
+build --action_env=CXX=g++
+
+# CUDA configuration
+# build --@rules_cuda//cuda:enable_cuda

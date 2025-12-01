@@ -1,0 +1,24 @@
+load("@rules_cuda//cuda:defs.bzl", "cuda_library")
+
+cuda_library(
+    name = "renderer",
+    srcs = ["renderer.cu"],
+    hdrs = ["renderer.h"],
+)
+
+cuda_library(
+    name = "main_lib",
+    srcs = ["main.cu"],
+    deps = [":renderer"],
+)
+
+cc_binary(
+    name = "main",
+    linkopts = [
+        "-lglfw",
+        "-lGL",
+        "-L/usr/local/cuda/lib64",
+        "-lcudart",
+    ],
+    deps = [":main_lib"],
+)

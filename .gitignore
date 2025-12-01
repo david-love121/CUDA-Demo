@@ -1,0 +1,7 @@
+.cache
+.vscode
+bazel-*
+cuda_mock
+external
+compile_commands.json
+MODULE.bazel.lock
